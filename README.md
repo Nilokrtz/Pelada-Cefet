@@ -9,19 +9,30 @@ Membros:
 Teremos duas branchs principais:
 
 - Main: que vai ser a entregue no final do trabalho
-- Develop: a branch que vai ser a branch que vocês teram que fazer as outras branchs
+- Develop: essa vai ser a branch que vocês teram que puxar para criar as outras branchs
 
-Se for usar o terminal para fazer as branchs e commits os comandos são
+## Se for usar o terminal para fazer as branchs e commits os comandos são
 
+# Criar Branchs
 Primeiro verifique a branch que você está utilizando com:
-$ git checkout
+```git
+git checkout
+```
 
 Caso queira criar uma nova branch, abra a branch develop e use o comando:
-$ git checkout -b nome-da-sua-branch origin/develop
+```git
+git checkout -b nome-da-sua-branch origin/develop
+```
 
-
+# Dar Commits
 Para realizar os commits use:
-$ git add .
+```git
+git add .
+```
 
 E depois utilize o comando:
-$ git commit -m "nome-do-seu-commit"
+```git
+git commit -m "nome-do-seu-commit"
+```
+
+Para finalizar dê um git push para confirmar as alterações e para atualizar o seu repositório basta dar git pull que ele trazer as informações mais recentes hospedadas no GitHub
