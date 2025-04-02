@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Jogador {
+    //System.out.println("Jogador.java");
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     String nome;
