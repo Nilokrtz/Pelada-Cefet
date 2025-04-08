@@ -7,9 +7,19 @@ public class Funcionarios {
     private String dataNascimento;
     private float salario;
     private String funcao;
+
+    public Funcionarios() {
     
-
-
+    }
+    
+    public Funcionarios(String cpf, String nomeCompleto, String dataNascimento, float salario, String funcao) {
+        this.cpf = cpf;
+        this.nomeCompleto = nomeCompleto;
+        this.dataNascimento = dataNascimento;
+        this.salario = salario;
+        this.funcao = funcao;
+    }
+    
     public String getCpf() {
         return cpf;
     }
