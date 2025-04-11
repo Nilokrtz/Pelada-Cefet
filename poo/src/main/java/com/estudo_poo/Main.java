@@ -1,7 +1,6 @@
 package com.estudo_poo;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Scanner;
 import com.estudo_poo.entities.Jogador;
@@ -9,16 +8,17 @@ import com.estudo_poo.entities.Time;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-    
+
         try {
-            
             Locale.setDefault(Locale.US);
             Scanner sc = new Scanner(System.in);
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-            Jogador jogador = new Jogador();      
+
             Time time1 = new Time();
             Time time2 = new Time();
+            
+            time1 = null;
+            time2 = null;
 
             int escolha = 0;
             int escolhaTime = 0;
@@ -29,34 +29,54 @@ public class Main {
 
                 switch (escolha) {
                     case 1:
-                        System.out.println("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja configurar: ");
+                        System.out.print("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja configurar: ");
                         escolhaTime = sc.nextInt();
 
                         if (escolhaTime == 1) {
                             time1 = Time.CadastrarTime();
                             System.out.println(time1.toString());
+                            
                         } 
                         else if (escolhaTime == 2) {
-
                             time2 = Time.CadastrarTime();
                             System.out.println(time2.toString());
+                        } 
+                        else {
+                            System.out.println("Opção de time inválida.");
                         }
-
                         break;
 
                     case 2:
-                        System.out.println("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja adicionar o jogador: ");
+                        System.out.print("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja adicionar o jogador: ");
                         escolhaTime = sc.nextInt();
 
+                        Jogador novoJogador = new Jogador();
 
                         if (escolhaTime == 1) {
-                            jogador.CadastrarJogador(time1);
-                            time1.adicionarJogadorTime(jogador);
-
+                            if (time1 == null) {
+                                System.out.println("O Time 1 ainda não foi configurado.");
+                                break;
+                            }
+                            
+                            novoJogador = Jogador.CadastrarJogador(time1);
+                            
+                            if (novoJogador != null) {
+                                time1.adicionarJogadorTime(novoJogador);
+                            }
                         } 
                         else if (escolhaTime == 2) {
-                            jogador.CadastrarJogador(time2);
-                            time2.adicionarJogadorTime(jogador);
+                            if (time2 == null) {
+                                System.out.println("O Time 2 ainda não foi configurado.");
+                                break;
+                            }
+                            
+                            novoJogador = Jogador.CadastrarJogador(time2);
+                            if (novoJogador != null) {
+                                time2.adicionarJogadorTime(novoJogador);
+                            }
+                        } 
+                        else {
+                            System.out.println("Opção de time inválida.");
                         }
                         break;
 
@@ -65,15 +85,28 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.println("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja listar os jogadores: ");
+                        System.out.print("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja listar os jogadores: ");
                         escolhaTime = sc.nextInt();
 
                         if (escolhaTime == 1) {
-                            time1.listarJogadores();
-
+                            
+                            if (time1 == null) {
+                                System.out.println("O Time 1 ainda não foi configurado.");
+                            } 
+                            else {
+                                time1.listarJogadores();
+                            }
                         } else if (escolhaTime == 2) {
-                            time2.listarJogadores();
-
+                            
+                            if (time2 == null) {
+                                System.out.println("O Time 2 ainda não foi configurado.");
+                            } 
+                            else {
+                                time2.listarJogadores();
+                            }
+                        } 
+                        else {
+                            System.out.println("Opção de time inválida.");
                         }
                         break;
 
@@ -82,17 +115,16 @@ public class Main {
                         break;
 
                     default:
-                        System.out.println("Essa opção não existe. Tente novamente!!");
+                        System.out.println("Essa opção não existe. Tente novamente!");
                 }
 
             } while (escolha != 5);
 
             sc.close();
 
-        } 
-        // Ao terminar o programa mudar a messagem: "Erro no programa. Voltando para o menu!"
-        catch (Exception e) {
-            System.out.println("Deu erro de: " + e);
+        } catch (Exception e) {
+            // System.out.println("Erro no programa. Voltando para o menu!");
+            System.out.println("Detalhes do erro: " + e);
         }
     }
 }
