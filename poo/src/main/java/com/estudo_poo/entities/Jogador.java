@@ -2,9 +2,10 @@ package com.estudo_poo.entities;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Jogador {
-    //System.out.println("Jogador.java");
+    Scanner sc = new Scanner(System.in);
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     String nome;
@@ -12,18 +13,22 @@ public class Jogador {
     Date dataDeNascimento;
     String posicao;
     int camisa;
+    Time time;
+
 
     public Jogador(){
 
     }
 
-    public Jogador(String nome, float altura, Date dataDeNascimento, String posicao, int camisa) {
+    public Jogador(String nome, float altura, Date dataDeNascimento, String posicao, int camisa, Time time) {
         this.nome = nome;
         this.altura = altura;
         this.dataDeNascimento = dataDeNascimento;
         this.posicao = posicao;
         this.camisa = camisa;
+        this.time = time;
     }
+
 
     public String getNome() {
         return nome;
@@ -65,6 +70,43 @@ public class Jogador {
         this.camisa = camisa;
     }
 
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
+    public static Jogador CadastrarJogador(Time time) {
+        try {
+
+            Scanner sc = new Scanner(System.in);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            System.out.println("Digite seu nome: ");
+            String nome = sc.next();
+
+            System.out.println("Digite sua altura: ");
+            float altura = sc.nextFloat();
+
+            System.out.print("Digite sua data de nascimento (DD/MM/YYYY): ");
+            Date dataDeNascimento = sdf.parse(sc.next());
+
+            System.out.println("Digite sua posição: ");
+            String posicao = sc.next();
+
+            System.out.println("Digite o n° da sua camisa: ");
+            int camisa = sc.nextInt();
+    
+            return new Jogador(nome, altura, dataDeNascimento, posicao, camisa, time);
+    
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar o jogador: " + e.getMessage());
+            return null;
+        }
+    }    
+
     @Override
     public String toString() {
         
@@ -75,9 +117,11 @@ public class Jogador {
 		sb.append(sdf.format(dataDeNascimento) + "\n");
 		sb.append(posicao + "\n");
 		sb.append(camisa + "\n");
+        sb.append(time + "\n");
 		sb.append("------------------------------------------------------------\n");
 		
 		return sb.toString();
     }
+
 
 }
