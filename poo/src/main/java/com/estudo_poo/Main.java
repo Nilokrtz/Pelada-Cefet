@@ -8,10 +8,10 @@ import com.estudo_poo.entities.Time;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-
+        
+        Scanner sc = new Scanner(System.in);
         try {
             Locale.setDefault(Locale.US);
-            Scanner sc = new Scanner(System.in);
 
 
             Time time1 = new Time();
@@ -24,9 +24,9 @@ public class Main {
             int escolhaTime = 0;
 
             do {
-                System.out.println("[ 1 ] Configurar Times \n[ 2 ] Adicionar Jogador e Definir Time \n[ 3 ] Remover Jogador \n[ 4 ] Listar Jogadores Time \n[ 5 ] Sair \nDigite a opção que você deseja executar: ");
+                System.out.print("[ 1 ] Configurar Times \n[ 2 ] Adicionar Jogador e Definir Time \n[ 3 ] Remover Jogador \n[ 4 ] Listar Jogadores Time \n[ 5 ] Sair \nDigite a opção que você deseja executar: ");
                 escolha = sc.nextInt();
-
+                
                 switch (escolha) {
                     case 1:
                         System.out.print("\n[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja configurar: ");
@@ -118,13 +118,16 @@ public class Main {
                         System.out.println("Essa opção não existe. Tente novamente!");
                 }
 
+
             } while (escolha != 5);
 
-            sc.close();
-
+            
+            
         } catch (Exception e) {
             // System.out.println("Erro no programa. Voltando para o menu!");
             System.out.println("Detalhes do erro: " + e);
+        }finally{
+            sc.close();
         }
     }
 }

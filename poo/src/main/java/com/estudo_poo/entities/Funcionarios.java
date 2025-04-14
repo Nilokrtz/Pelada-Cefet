@@ -1,4 +1,5 @@
 package com.estudo_poo.entities;
+import java.util.ArrayList;
 
 public class Funcionarios {
 
@@ -7,17 +8,36 @@ public class Funcionarios {
     private String dataNascimento;
     private float salario;
     private String funcao;
+    private ArrayList<Contato> tipoContato;
+    public ArrayList<Contato> getTipoContato() {
+        return tipoContato;
+    }
+    
+    public void setTipoContato(ArrayList<Contato> tipoContato) {
+        this.tipoContato = tipoContato;
+    }
+    private ArrayList<Contato> contato;
 
+    public ArrayList<Contato> getContato() {
+        return contato;
+    }
+
+    public void setContato(ArrayList<Contato> contato) {
+        this.contato = contato;
+    }
+    
     public Funcionarios() {
     
     }
     
-    public Funcionarios(String cpf, String nomeCompleto, String dataNascimento, float salario, String funcao) {
+    public Funcionarios(String cpf, String nomeCompleto, String dataNascimento, float salario, String funcao, ArrayList<Contato> contato, ArrayList<Contato> tipoContato) {
         this.cpf = cpf;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.salario = salario;
         this.funcao = funcao;
+        this.tipoContato = new ArrayList<>();
+        this.contato = new ArrayList<>();
     }
     
     public String getCpf() {
