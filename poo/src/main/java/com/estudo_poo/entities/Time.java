@@ -76,7 +76,6 @@ public class Time{
             System.out.print("Digite a cidade de criação: ");
             String cidade = sc.nextLine();
 
-            sc.close();
             return new Time(nomeTime, dataCriacao, cidade);
         
 
@@ -90,12 +89,22 @@ public class Time{
         jogadores.add(jogador);
     }
 
-    public void removerJogador(){
-        
+    public void removerJogador(){ 
+
+        Scanner sc = new Scanner (System.in);
+
+        System.out.println("Digite o número da camisa do jogador que você deseja remover: ");
+        int camisa = sc.nextInt();
+
+        for (int i = jogadores.size() - 1; i >= 0; i--) {
+            if (jogadores.get(i).getCamisa() == camisa) {
+                jogadores.remove(i);
+            }
+        }
+        System.out.println("Jogador com o número " + camisa + " removido.");
     }
     
     public void listarJogadores(){
-        
         for(int i = 0; i<jogadores.size(); i++){
             System.out.println(jogadores.get(i).toString());
         }

@@ -81,7 +81,27 @@ public class Main {
                         break;
 
                     case 3:
-                        System.out.println("Essa opção não existe ainda");
+                        System.out.println("[ 1 ] Time 1 \n[ 2 ] Time 2 \nDigite qual time você deseja remover o jogador: ");
+                        escolhaTime = sc.nextInt();
+
+                        if (escolhaTime == 1) {
+                            if (time1 ==  null) {
+                                System.out.println("O time 1 ainda não foi configurado.");
+                                break;
+                            }
+                            else {
+                                time1.removerJogador();
+                            }
+                        }
+                        if (escolhaTime == 2) {
+                            if (time2 ==  null) {
+                                System.out.println("O time 2 ainda não foi configurado.");
+                                break;
+                            }
+                            else {
+                                time2.removerJogador();
+                            }
+                        }
                         break;
 
                     case 4:

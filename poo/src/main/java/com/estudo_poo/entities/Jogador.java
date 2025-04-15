@@ -99,7 +99,6 @@ public class Jogador {
             System.out.println("Digite o n° da sua camisa: ");
             int camisa = sc.nextInt();
     
-            sc.close();
             return new Jogador(nome, altura, dataDeNascimento, posicao, camisa, time);
     
         } catch (Exception e) {
