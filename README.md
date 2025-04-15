@@ -4,14 +4,7 @@ Trabalho de Gerenciamento de um campo de Pelada realizado na linguagem Java por 
 
 Membros: 
 
-## NÃO DÊ COMIT NA MAIN ANTES DE REVISAR, FAÇA UMA BRANCH. ⚠️⚠️⚠️
-
-Teremos duas branchs principais:
-
-- Main: que vai ser a entregue no final do trabalho
-- Develop: essa vai ser a branch que vocês teram que puxar para criar as outras branchs
-
-## Se for usar o terminal para fazer as branchs e commits os comandos são
+## COMANDOS GIT
 
 # Criar Branchs
 Primeiro verifique a branch que você está utilizando com:
