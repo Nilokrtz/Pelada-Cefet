@@ -61,31 +61,27 @@ public class Time{
     
     public static Time CadastrarTime() {
         try {
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Scanner sc = new Scanner(System.in);
-
-
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
             System.out.print("Digite o nome do Time: ");
             String nomeTime = sc.nextLine();
-
+    
             System.out.print("Digite a data de criação do time (dd/MM/yyyy): ");
             Date dataCriacao = sdf.parse(sc.next());
-
-            sc.nextLine();
+    
+            sc.nextLine(); // Consumir quebra de linha
             System.out.print("Digite a cidade de criação: ");
             String cidade = sc.nextLine();
-
-            sc.close();
+    
             return new Time(nomeTime, dataCriacao, cidade);
-        
-
+    
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar o Time: " + e.getMessage());
             return null;
         }
     }
-
+    
     public void adicionarJogadorTime(Jogador jogador){
         jogadores.add(jogador);
     }
@@ -150,7 +146,7 @@ public class Time{
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-		sb.append("------------------------------------------------------------\n");
+		sb.append("----------------------------[ TIME ]-----------------------------\n");
 		sb.append(nomeTime + "\n");
         sb.append(sdf.format(dataCriacao) + "\n");
         sb.append(cidade + "\n");

@@ -80,40 +80,38 @@ public class Jogador {
 
     public static Jogador CadastrarJogador(Time time) {
         try {
-
             Scanner sc = new Scanner(System.in);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+    
             System.out.println("Digite seu nome: ");
             String nome = sc.next();
-
+    
             System.out.println("Digite sua altura: ");
             float altura = sc.nextFloat();
-
+    
             System.out.print("Digite sua data de nascimento (DD/MM/YYYY): ");
             Date dataDeNascimento = sdf.parse(sc.next());
-
+    
             System.out.println("Digite sua posição: ");
             String posicao = sc.next();
-
+    
             System.out.println("Digite o n° da sua camisa: ");
             int camisa = sc.nextInt();
     
-            sc.close();
             return new Jogador(nome, altura, dataDeNascimento, posicao, camisa, time);
     
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar o jogador: " + e.getMessage());
             return null;
         }
-    }    
-
+    }
+    
     @Override
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-		sb.append("------------------------------------------------------------\n");
-		sb.append(nome + "\n");
+		sb.append("----------------------------[ JOGADOR ]-----------------------------\n");
+        sb.append(nome + "\n");
 		sb.append(altura + "\n");
 		sb.append(sdf.format(dataDeNascimento) + "\n");
 		sb.append(posicao + "\n");
