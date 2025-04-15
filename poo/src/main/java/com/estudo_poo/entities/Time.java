@@ -76,10 +76,8 @@ public class Time{
             System.out.print("Digite a cidade de criação: ");
             String cidade = sc.nextLine();
 
-            sc.close();
             return new Time(nomeTime, dataCriacao, cidade);
-        
-
+            
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar o Time: " + e.getMessage());
             return null;

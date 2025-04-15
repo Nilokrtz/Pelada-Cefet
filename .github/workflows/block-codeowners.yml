@@ -1,0 +1,15 @@
+name: Block CODEOWNERS changes
+
+on:
+  pull_request:
+    paths:
+      - '.github/CODEOWNERS'
+
+jobs:
+  block_changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel PRs that modify CODEOWNERS
+        run: |
+          echo "Changes to CODEOWNERS are not allowed."
+          exit 1
