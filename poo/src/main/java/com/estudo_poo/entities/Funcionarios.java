@@ -12,10 +12,18 @@ public class Funcionarios {
     private String funcao;
     private ArrayList<Contato> contatos;
     private ArrayList<Contato> tipoContato;
+    private ArrayList<Endereco> uf;
+    private ArrayList<Endereco> cidade;
+    private ArrayList<Endereco> bairro;
+    private ArrayList<Endereco> numero_casa;
 
     public Funcionarios() {
         this.contatos = new ArrayList<>();
         this.tipoContato = new ArrayList<>();
+        this.uf =new ArrayList<>();
+        this.cidade =new ArrayList<>();
+        this.bairro =new ArrayList<>();
+        this.numero_casa =new ArrayList<>();
     }
     
     public Funcionarios(String cpf, String nomeCompleto, String dataNascimento, float salario, String funcao) {
@@ -26,8 +34,42 @@ public class Funcionarios {
         this.funcao = funcao;
         this.contatos = new ArrayList<>();
         this.tipoContato = new ArrayList<>();
+        this.uf =new ArrayList<>();
+        this.cidade =new ArrayList<>();
+        this.bairro =new ArrayList<>();
+        this.numero_casa =new ArrayList<>();
     }
 
+    //TERMINAR ESSA BUDEGA
+    public void pegarEndereco() {
+        Scanner sc = new Scanner(System.in);
+        int qntEnderecos;
+
+        
+        System.out.println("Quantas casas deseja adicionar: ");
+        qntEnderecos = sc.nextInt();
+        sc.nextLine();
+        while (qntEnderecos != 0) {
+            System.out.print("Me fale a unidade federal: ");
+            String infoUf = sc.nextLine();
+            
+            System.out.print("Me fale a cidade: ");
+            String infoCidade = sc.nextLine();
+            
+            System.out.print("Me fale o bairro: ");
+            String infoBairro = sc.nextLine();
+            
+            System.out.print("Me fale o numero da casa");
+            int infoNumero_casa = sc.nextInt();
+
+            
+            
+        
+        
+            qntEnderecos--;
+        }
+
+    }
     public void pegarContato() {
         Scanner sc = new Scanner(System.in);
         String leitorTipo;
