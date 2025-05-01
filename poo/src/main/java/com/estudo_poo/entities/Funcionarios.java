@@ -12,18 +12,21 @@ public class Funcionarios {
     private String funcao;
     private ArrayList<Contato> contatos;
     private ArrayList<Contato> tipoContato;
-    private ArrayList<Endereco> uf;
+    private ArrayList<Endereco> enderecos;
+    
+    /*private ArrayList<Endereco> uf;
     private ArrayList<Endereco> cidade;
     private ArrayList<Endereco> bairro;
-    private ArrayList<Endereco> numero_casa;
+    private ArrayList<Endereco> numero_casa;*/
 
     public Funcionarios() {
         this.contatos = new ArrayList<>();
         this.tipoContato = new ArrayList<>();
-        this.uf =new ArrayList<>();
+
+        /*this.uf =new ArrayList<>();
         this.cidade =new ArrayList<>();
         this.bairro =new ArrayList<>();
-        this.numero_casa =new ArrayList<>();
+        this.numero_casa =new ArrayList<>();*/
     }
     
     public Funcionarios(String cpf, String nomeCompleto, String dataNascimento, float salario, String funcao) {
@@ -34,22 +37,21 @@ public class Funcionarios {
         this.funcao = funcao;
         this.contatos = new ArrayList<>();
         this.tipoContato = new ArrayList<>();
-        this.uf =new ArrayList<>();
+        this.enderecos = new ArrayList<>();
+
+        /*this.uf =new ArrayList<>();
         this.cidade =new ArrayList<>();
         this.bairro =new ArrayList<>();
-        this.numero_casa =new ArrayList<>();
+        this.numero_casa =new ArrayList<>();*/
     }
 
     //TERMINAR ESSA BUDEGA
     public void pegarEndereco() {
         Scanner sc = new Scanner(System.in);
-        int qntEnderecos;
-
-        
-        System.out.println("Quantas casas deseja adicionar: ");
-        qntEnderecos = sc.nextInt();
-        sc.nextLine();
-        while (qntEnderecos != 0) {
+        boolean decisao_endereco = false;
+        int continuar;
+        int casa = 1;
+        while (decisao_endereco == false) {
             System.out.print("Me fale a unidade federal: ");
             String infoUf = sc.nextLine();
             
@@ -61,12 +63,19 @@ public class Funcionarios {
             
             System.out.print("Me fale o numero da casa");
             int infoNumero_casa = sc.nextInt();
-
-            
-            
         
-        
-            qntEnderecos--;
+            enderecos.add(new Endereco(infoUf, infoCidade, infoBairro, infoNumero_casa));
+            
+            System.out.print("Você deseja adicionar mais um endereço?\n[1]Sim\n[2]Não"); 
+            continuar  = sc.nextInt();          
+            
+            if(continuar ==2 ){
+                decisao_endereco = true;
+            }else if(continuar == 1){
+                casa++;
+                System.out.printf("Ok, me fale o seu as informações do  ", casa, "º  endereço"  );
+            }
+    
         }
 
     }
@@ -208,3 +217,4 @@ public class Funcionarios {
     }
 
 }
+
