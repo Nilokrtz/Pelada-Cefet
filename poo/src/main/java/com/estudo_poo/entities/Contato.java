@@ -6,6 +6,10 @@ public class Contato {
     private TipoContato tipo;
     private String contato;
 
+    public Contato(){
+        
+    }
+
     public Contato(TipoContato tipo, String contato) {
         this.tipo = tipo;
         this.contato = contato;

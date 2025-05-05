@@ -6,6 +6,7 @@ package com.estudo_poo.enums;
         INSTAGRAM,
         CELULAR,
         TELEFONE,
+        WHATSAPP,
         LINKEDIN;
     }
 
